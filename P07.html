@@ -1,0 +1,34 @@
+P07 (**) Flatten a nested list structure.
+    Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).
+
+    Example:
+    * (my-flatten '(a (b (c d) e)))
+    (A B C D E)
+
+    Hint: Use the predefined functions list and append.
+
+    <script>
+    var x = '(a (b (c d) e)))'
+		var y = [];
+		console.log(x.length);
+		for(i = 0;i < x.length; i++) {
+			// console.log(x[i]);
+			if(x[i]!= '(' && x[i]!= ' ' && x[i] != ')' ) {
+				console.log(x[i]);
+				y.push(x[i])
+			}
+		}
+		console.log(y)
+		var str = y.toString()
+		// console.log(str.replace(/,/g, ''))
+		var newArr = [];
+		newArr.push(str.replace(/,/g, ''))
+		console.log(newArr)
+		newArr.unshift("(")
+		console.log(newArr)
+		newArr.push(")")
+		console.log(newArr)
+		var newArr1 = newArr.toString();
+		console.log(newArr1);
+		console.log(newArr1.replace(/,/g, ""))
+    </script>

@@ -1,0 +1,19 @@
+(((abc-ff))))
+Assumption: Count the number of occurances of () in the string, if one exceeds the other, out is invalid else it's valid.
+
+Step1:
+-Look for the first occurance of ( in the orginal_input and check for the occurance of it's reverse ) in the  orginal_input.
+Step2: 
+-If you find the occurance, moved the matched elements to a new_str = () and now the original_input will be ((abc-ff)))
+-Look for the first occurance of ( in the orginal_input and check for the occurance of it's reverse ) in the  orginal_input, now new_str = ()() and original_input will be = (abc-off))
+-Look for the first occurance of ( in the orginal_input and check for the occurance of it's reverse ) in the  orginal_input, now new_str = ()()() and original_input will be = abc-off)
+-Look for the first occurance of ( in the orginal_input and check for the occurance of it's reverse ) in the  orginal_input, if you dont find any, then the input is valid, else the input is invalid
+<!-- Step:
+-Elimate all other characters apart from (  and ) from the original_string, which is (((abc-ff))))
+-Now, the new_string is ((( ))))
+-From the new_string, organise the identical ones, i.e, there will be two new strings
+	left_one = ((( and right_one = ))))
+-Now, count the elements in the left_one and the right_one
+-if the count of both left_one and right_one is same, then the given input is valid else it's not valid.
+-Hence, original_string is not valid.
+ -->

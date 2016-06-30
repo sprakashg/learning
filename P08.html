@@ -1,0 +1,208 @@
+P08 (**) Eliminate consecutive duplicates of list elements.
+    If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
+
+    Example:
+    * (compress '(a a a a b c c a a d e e e e))
+    (A B C A D E)
+
+    <script>
+    var original_str = "a a a a";
+    var count = 1;
+    var val ='';
+    var newval='';
+    var newString = original_str.split(" ");
+    // var converted_str = original_str.toString();
+    // var replaced_str = converted_str.replace(/,/g,'');
+    // var newString = replaced_str.replace(/ /g, '')
+    console.log(newString)
+
+    for (i = 0; i<newString.length; i++) {	
+    	// newval += val
+    	if(newString[i] == newString[i+1]) {
+    		console.log(newString.charAt(newString[i]));
+    		count++;
+    		val = count + newString[i]
+    		console.log(val);
+    		// newval += val
+    	} else {
+
+    	}
+
+    	// // if(newx[i+1] != undefined) {
+	    // 	// console.log(newx[i])
+	    // 	if(newx[i] == newx[i+1]) {
+	    // 		count++
+	    // 		    	// console.log(newx.indexOf(newx[i]))
+	    // 		val += count + newx[i];
+	    // 		// console.log('+++', val)
+	    // 		// console.log(newx[i])
+	    // 		// val.push(newx[i])
+	    // 		// // console.log(newx[i]);
+	    // 		// console.log(val)
+	    // 		// console.log(val)
+	    // 		// val += newx[i];
+	    // 		// console.log(val)
+	    // 		// y += val
+	    // 		// console.log(val)
+	    // 		// newval = val
+	    // 		// console.log(newval)
+	    // 	} else {
+	    // 		// console.log(newx.indexOf(newx[i]))
+	    // 		count=1;
+	    // 		val += count + newx[i];
+	    // 		// count = 1;
+	    // 		// y = val
+	    // 		// val = count.toString() + newx[i];  		
+	    // 			    		// val.push(newx[i])
+	    // 	}
+    	// // }
+
+    }
+        		console.log(newval)
+    // console.log('final', val)
+    </script>
+<!--     Algorithm
+    1. Get the input
+    2. Check for next items
+    3. Keep the value of the repeated items on a variable. -->
+
+<!--     a a a a b c c a a d e e e e
+    1.given input as "a a a a b c c a a d e e e e"
+    2.Track information : input, current, next,count, output
+    3.Take two elements at a time, default count is 1.
+    4.is a equals a, yes, so take a, count a2
+    5.is a equals a, yes, so take a, count a3
+    6.is a equals a, yes, so take a, count a4
+    7.is a equals b, no so take b, a4b1
+    8.is b equals c, no so take b, a4b1c1
+    9.is c equals c, yes so take c, a4b1c2
+    10.is c equals a, no so take a, a4b1c2a1
+    11.is a equals a, yes so take a, a4b1c2a2
+    12.is a equals d, no take d, a4b1c2a2d1
+    13.is d equals e, no take d, a4b1c2a2d1e1
+    14.is e equals e, yes take e, a4b1c2a2d1e2
+    15.is e equals e, yes take e, a4b1c2a2d1e3
+    16.is e equals e, yes take e, a4b1c2a2d1e4 -->
+
+<!-- Given input = "a a a a b c c a a d e e e e"
+Variables needed input, current, next, count = 1, output
+Step1 : 
+	input:  a 
+	current: a
+	next: a
+	- is current equals next
+		-> yes,
+		output: a2
+
+Step2 : 
+	input:  a 
+	current: a
+	next: a
+	- is current equals next
+		-> yes, 
+		output: a3
+
+Step3 : 
+	input:  a 
+	current: a
+	next: a
+
+	-	is current equals next
+		-> yes, 
+		output: a4
+
+Step4 : 
+	input:  a 
+	current: a
+	next: b
+
+	- is current equals next 
+		-> no,
+		output: a4b1
+
+Step5 : 
+	input:  b 
+	current: b
+	next: c
+
+	- is current equals next 
+		-> no,
+		output: a4b1c1
+
+Step6 : 
+	input:  c 
+	current: c
+	next: c
+
+	- is current equals next 
+		-> yes,
+		output: a4b1c2
+
+Step7 : 
+	input:  c 
+	current: c
+	next: a
+
+	- is current equals next 
+		->  no,
+		output: a4b1c2a1
+
+
+Step8 : 
+	input:  a
+	current: a
+	next: a
+
+	- is current equals next 
+		->  yes,
+		output: a4b1c2a2
+
+
+Step9 : 
+	input:  a
+	current: a
+	next: d
+
+	- is current equals next 
+		->  no,
+		output: a4b1c2a2d1	
+
+Step10 : 
+	input:  d
+	current: d
+	next: e
+
+	- is current equals next 
+		->  no,
+		output: a4b1c2a2d1e1
+
+Step11 : 
+	input:  e
+	current: e
+	next: e
+
+	- is current equals next 
+		->  yes,
+		output: a4b1c2a2d1e2
+
+Step12 : 
+	input:  e
+	current: e
+	next: e
+
+	- is current equals next 
+		->  yes,
+		output: a4b1c2a2d1e3
+		
+Step13 : 
+	input:  e
+	current: e
+	next: e
+
+	- is current equals next 
+		->  yes,
+		output: a4b1c2a2d1e4
+ -->
+<!-- -get the input string.
+-var input // for assing it to input string
+-var  -->

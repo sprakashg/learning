@@ -1,0 +1,16 @@
+P06 (*) Find out whether a list is a palindrome.
+    A palindrome can be read forward or backward; e.g. (x a m a x).
+<script>
+	var x = "malayalam"
+	var arr = x.split("")
+	var rev = arr.reverse();
+	var comp = rev.toString();
+	var compare = comp.replace(/,/g, '');
+	console.log(compare)
+	console.log(x)
+	if(x === compare) {
+		console.log(x, "is a palindrome")
+	} else {
+		console.log(x, "is not a palindrome")
+	}
+</script>
